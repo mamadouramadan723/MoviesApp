@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -13,6 +15,12 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+
+        val properties = Properties()
+        val localPropertiesFile = project.rootProject.file("local.properties").inputStream()
+        properties.load(localPropertiesFile)
+
+        buildConfigField("String", "API_KEY", "\"${properties.getProperty("API_KEY")}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -38,6 +46,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig =  true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
