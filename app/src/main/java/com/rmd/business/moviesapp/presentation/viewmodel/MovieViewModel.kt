@@ -3,6 +3,8 @@ package com.rmd.business.moviesapp.presentation.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.rmd.business.moviesapp.data.repository.MovieRepository
+import com.rmd.business.moviesapp.presentation.state.MovieState
+import com.rmd.business.moviesapp.presentation.state.MovieUiEvent
 import com.rmd.business.moviesapp.utils.Category
 import com.rmd.business.moviesapp.utils.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -55,7 +57,7 @@ class MovieViewModel @Inject constructor(
                 it.copy(isLoading = true)
             }
 
-            movieRepository.getMovie(
+            movieRepository.getMovieList(
                 forceFetchFromRemote,
                 Category.POPULAR,
                 movieState.value.popularMoviePage
@@ -95,7 +97,7 @@ class MovieViewModel @Inject constructor(
                 it.copy(isLoading = true)
             }
 
-            movieRepository.getMovie(
+            movieRepository.getMovieList(
                 forceFetchFromRemote,
                 Category.UPCOMING,
                 movieState.value.upcomingMoviePage
