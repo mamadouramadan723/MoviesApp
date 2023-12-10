@@ -24,6 +24,8 @@ android {
         properties.load(localPropertiesFile)
 
         buildConfigField("String", "API_KEY", "\"${properties.getProperty("API_KEY")}\"")
+        buildConfigField("String", "BASE_URL", "\"${properties.getProperty("BASE_URL")}\"")
+        buildConfigField("String", "IMAGE_BASE_URL", "\"${properties.getProperty("IMAGE_BASE_URL")}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
