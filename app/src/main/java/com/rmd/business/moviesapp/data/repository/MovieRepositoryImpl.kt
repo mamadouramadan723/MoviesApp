@@ -8,8 +8,6 @@ import com.rmd.business.moviesapp.domain.model.Movie
 import com.rmd.business.moviesapp.utils.Resource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import okio.IOException
-import retrofit2.HttpException
 import javax.inject.Inject
 
 class MovieListRepositoryImpl @Inject constructor(
